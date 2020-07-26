@@ -5,7 +5,7 @@ export const SidebarWrapper = styled.aside`
   flex-direction: column;
   align-items: center;
 
-  width: 15rem;
+  width: 13rem;
   height: 100vh;
   position: fixed;
 
