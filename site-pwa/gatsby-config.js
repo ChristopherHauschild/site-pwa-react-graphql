@@ -1,10 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `Site PWA`,
+    position: `Fullstack Developer`,
     description: `Site desenvolvido utilizando React, GraphQL e Netlify CMS`,
     author: `@christopher`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -13,6 +15,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `pdfs`,
+    //     path: `${__dirname}/src/pdfs`,
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
