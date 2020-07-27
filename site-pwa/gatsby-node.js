@@ -43,6 +43,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
             timeToRead
           }
+          next {
+            frontmatter {
+              title
+            }
+            fields {
+              slug
+            }
+          }
+          previous {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
         }
       }
     }
@@ -54,12 +70,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const posts = result.data.allMarkdownRemark.edges
 
-  posts.forEach(({ node }, index) => {
+  posts.forEach(({ node, next, previous }, index) => {
     createPage({
       path: node.fields.slug,
       // path -> pega caminho exato da pasta
       component: path.resolve(`./src/templates/blog-post.js`),
-      context: { slug: node.fields.slug },
+      context: {
+        slug: node.fields.slug,
+        previousPost: next,
+        nextPost: previous,
+      },
     })
   })
 
