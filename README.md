@@ -5,7 +5,7 @@ Blog PWA desenvolvido utilizando Gatsby, React, GraphQL e Netlify CSM, durante o
 </p> <br />
 
 <div align="center">
-  <img src="" width="" />
+  <img src="https://github.com/ChristopherHauschild/site-pwa-react-graphql/blob/master/BPWA.gif?raw=true" />
 </div>
 
 <hr>
