@@ -1,4 +1,4 @@
-# <p align="center"> :postbox: nbsp; Blog PWA nbsp; :postbox: </p>
+# <p align="center"> :postbox: nbps; Blog PWA nbps; :postbox: </p>
 
 <p align="justify">
 Blog PWA desenvolvido utilizando Gatsby, React, GraphQL e Netlify CSM, durante o curso disponibilizado pelo Eng. de Software Willian Justen. O blog conta com paginação, navegação entre posts, mecanismo de busca utilizando o Algolia, modo dark e light e também modo de visualização grid ou list. O deploy foi realizado com o Netlify, para que após fosse possível configurar o Netlify CMS.
