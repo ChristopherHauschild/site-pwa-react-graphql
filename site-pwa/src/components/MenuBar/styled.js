@@ -1,5 +1,5 @@
 import styled from "styled-components"
-
+import media from "styled-media-query"
 import { Link } from "gatsby"
 
 export const MenuBarWrapper = styled.aside`
@@ -13,9 +13,19 @@ export const MenuBarWrapper = styled.aside`
   right: 0;
   position: fixed;
 
+  ${media.lessThan("large")`
+  border-top: 1px solid var(--borders);
+  bottom: 0;
+  flex-direction: row;
+  height: auto;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+`}
+
   padding: 0.8rem 0;
-  background: #192734;
-  border-left: 1px solid #38444d;
+  background: var(--mediumBackground);
+  border-left: 1px solid var(--borders);
 `
 
 export const MenuBarGroup = styled.div`
@@ -23,6 +33,10 @@ export const MenuBarGroup = styled.div`
   flex-direction: column;
 
   padding-bottom: 1.55rem;
+
+  ${media.lessThan("large")`
+  flex-direction: row;
+`}
 `
 
 export const MenuBarLink = styled(Link)`
@@ -36,6 +50,35 @@ export const MenuBarItem = styled.span`
   position: relative;
 
   cursor: pointer;
-  color: #8899a6;
+  color: var(--texts);
   padding: 1.1rem;
+
+  &.light {
+    color: #d4d400;
+
+    &:hover {
+      color: #e2e240;
+    }
+  }
+
+  &:hover {
+    color: var(--highlight);
+  }
+
+  &.display {
+    ${media.lessThan("large")`
+      display: none;
+    `}
+  }
+  ${media.greaterThan("large")`
+    &:hover {
+      color: var(--highlight);
+    }
+  `}
+  ${media.lessThan("large")`
+    height: 1.6rem;
+    padding: .9rem;
+    position: relative;
+    width: 1.6rem;
+  `}
 `

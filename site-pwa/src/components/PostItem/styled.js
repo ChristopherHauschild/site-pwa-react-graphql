@@ -1,15 +1,26 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
-export const PostItemLink = styled(Link)`
-  color: #8899a6;
+export const PostItemLink = styled(AniLink)`
+  color: var(--texts);
   display: flex;
   text-decoration: none;
 
-  &:hover {
-    color: #1fa1f2;
+  body#grid & {
+    background-color: var(--background);
   }
+
+  &:hover {
+    color: var(--highlight);
+  }
+
+  ${media.lessThan("large")`
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 2rem 1rem;
+`}
 `
 
 export const PostItemWrapper = styled.section`
@@ -19,7 +30,14 @@ export const PostItemWrapper = styled.section`
   width: 100%;
   padding: 2rem 1.5rem;
 
-  border-bottom: 1px solid #38444d;
+  border-bottom: 1px solid var(--borders);
+
+  body#grid & {
+    border: none;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    justify-content: center;
+  }
 `
 
 export const PostItemTag = styled.div`
@@ -34,9 +52,23 @@ export const PostItemTag = styled.div`
   font-weight: 700;
   text-transform: uppercase;
 
-  color: #fff;
-  background: ${props => (props.background ? props.background : "#1fa1f2")};
+  body#grid & {
+    margin-bottom: 1.5rem;
+  }
+
+  color: var(--postColor);
+  background: ${props =>
+    props.background ? props.background : "var(--highlight)"};
   border-radius: 50%;
+
+  ${media.lessThan("large")`
+  border-radius: 0;
+  font-size: 1rem;
+  min-height: auto;
+  min-width: auto;
+  padding: .2rem .5rem;
+  margin-bottom: .7rem;
+`}
 `
 
 export const PostItemInfo = styled.div`
@@ -44,6 +76,10 @@ export const PostItemInfo = styled.div`
   flex-direction: column;
 
   margin-left: 1.5rem;
+
+  ${media.lessThan("large")`
+  margin: 0;
+`}
 `
 
 export const PostItemDate = styled.time`
@@ -55,6 +91,11 @@ export const PostItemTitle = styled.h1`
 
   font-size: 1.4rem;
   font-weight: 700;
+
+  body#grid & {
+    line-height: 1.1;
+    margin: 0.8rem 0;
+  }
 `
 
 export const PostItemDescription = styled.p`

@@ -36,6 +36,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
             frontmatter {
               background
+              image
               category
               date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
               description
